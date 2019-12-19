@@ -8,6 +8,10 @@ body{
     position: relative;
     text-align: center;
 }
+@font-face{
+    font-family: MyIcon;
+    src: url("../font/glyphicons-halflings-regular.woff2");
+}
 .header{
     width: 100%;
     height: 50px;
@@ -68,4 +72,25 @@ body{
     color: #555;
     right: 0px;
     outline: none;
+}
+
+.content{
+    display: inline-block;
+    position: relative;
+    width: 1170px;
+    margin: 30px auto 0px auto;
+}
+
+.content_left{
+    float: left;
+    width: 66%;
+    padding: 0 20px 0 0;
+    box-sizing: border-box;
+}
+.content_right{
+    float: right;
+    width: 34%;
+    padding: 0;
+    box-sizing: border-box;
+
 }
