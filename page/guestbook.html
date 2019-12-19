@@ -13,9 +13,11 @@
      <meta charset="UTF-8">
      <meta name="viewport" content="width=device-width, initial-scale=1.0">
      <meta http-equiv="X-UA-Compatible" content="ie=edge">
+     <link rel="shortcut icon" href="./favicon.ico">
      <title>个人博客</title>
      <link rel="stylesheet" href="./css/base.css">
      <link rel="stylesheet" href="./css/guestbook.css">
+     <script src="https://cdn.jsdelivr.net/npm/vue"></script>
  </head>
  <body>
      <header class="header">
@@ -56,42 +58,36 @@
             </div>
          </div>
          <div class="content_right">
-             <div class="right_module tags">
-                 <div>随机标签云</div>
-                 <a href="/">asd</a>
-                 <a href="/">dkl</a>
-                 <a href="/">xfe</a>
-                 <a href="/">deww</a>
-             </div>
-             <div class="right_module">
-                 <div>最近热门</div>
-                 <ul>
-                     <li><a href="/">使用码云git的webhook实现生产环境代</a></li>
-                     <li><a href="/">使用码云git的webhook实现生产环境代</a></li>
-                     <li><a href="/">使用码云git的webhook实现生产环境代</a></li>
-                     <li><a href="/">使用码云git的webhook实现生产环境代</a></li>
-                 </ul>
-             </div>
-             <div class="right_module">
-                 <div>最新评论</div>
-                 <ul>
-                     <li>
-                         <div>
-                             <span>这里是用户名</span>
-                             <span class="pull_right">这里是时间</span>
-                             <p>内容</p>
-                         </div>
-                     </li>
-                 </ul>
-             </div>
-             <div class="right_module">
-                 <div>友情链接</div>
-                 <span><a href="/">fubolisiji</a></span>
-                 <span><a href="/">fubolisiji</a></span>
-                 <span><a href="/">fubolisiji</a></span>
-                 <span><a href="/">fubolisiji</a></span>
-             </div>
-         </div>
+            <div class="right_module tags" id="random_tags">
+                <div>随机标签云</div>
+                <a href="/" v-for="tag in tags" :style="{color: randomColor(),fontSize: randomSize()}">{{tag}}</a>
+            </div>
+            <div class="right_module" id="new_hot">
+                <div>最近热门</div>
+                <ul v-for="hot in hots">
+                    <li><a :href="hot.link">{{hot.title}}</a></li>
+                </ul>
+            </div>
+            <div class="right_module" id="new_comments">
+                <div>最新评论</div>
+                <ul>
+                    <li v-for="comment in comments">
+                        <div>
+                            <span>{{comment.name}}</span>
+                            <span class="pull_right">{{comment.date}}</span>
+                            <p>{{comment.content}}</p>
+                        </div>
+                    </li>
+                </ul>
+            </div>
+            <div class="right_module">
+                <div>友情链接</div>
+                <span><a href="/">fubolisiji</a></span>
+                <span><a href="/">fubolisiji</a></span>
+                <span><a href="/">fubolisiji</a></span>
+                <span><a href="/">fubolisiji</a></span>
+            </div>
+        </div>
      </div> 
      <footer class="footer">
          <ul>
@@ -109,5 +105,6 @@
          </ul>
          <p>Copyright © 2010-2019 ...</p>
      </footer>
+     <script src="./js/base.js"></script>
  </body>
  </html>

@@ -13,9 +13,11 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <link rel="shortcut icon" href="./favicon.ico">
     <title>个人博客</title>
     <link rel="stylesheet" href="./css/base.css">
     <link rel="stylesheet" href="./css/index.css">
+    <script src="https://cdn.jsdelivr.net/npm/vue"></script>
 </head>
 <body>
     <header class="header">
@@ -35,49 +37,38 @@
     </header>
     <div class="content">
         <div class="content_left">
-            <div class="every_day">
+            <div class="every_day" id="every_day">
                 <span>每日一句</span>
-                <p>djalkfjdlkajfldk</p>
+                <p>{{content}}</p>
                 <p>--dajflkjd</p>
             </div>
-            <div class="article_list">
-                <div class="article">
-                    <a href="" class="article_title">Laravel5.4安装passport时遇到的一些问题</a>
-                    <p href="" class="article_content">支持高版本，我使用了composer require laravel/passport ~4.0安装后执行迁移时nothing to migrate，需要手动注册Provider， 在config/app.php中providers中添加Laravel\Passport\PassportServicePr</p>
-                    <div href="" class="article_foot">发布于2019-12-06 |  浏览(658) | Tags：laravel</div>
-                </div>
-                <div class="article">
-                    <a href="" class="article_title">Laravel5.4安装passport时遇到的一些问题</a>
-                    <p href="" class="article_content">支持高版本，我使用了composer require laravel/passport ~4.0安装后执行迁移时nothing to migrate，需要手动注册Provider， 在config/app.php中providers中添加Laravel\Passport\PassportServicePr</p>
-                    <div href="" class="article_foot">发布于2019-12-06 |  浏览(658) | Tags：laravel</div>
+            <div class="article_list" id="article_list">
+                <div class="article" v-for="article in articles">
+                    <a href="" class="article_title">{{article.title}}</a>
+                    <p href="" class="article_content">{{article.content}}</p>
+                    <div href="" class="article_foot">发布于{{article.date}} |  浏览({{article.views}}) | Tags：{{article.tags}}</div>
                 </div>
             </div>
         </div>
         <div class="content_right">
-            <div class="right_module tags">
+            <div class="right_module tags" id="random_tags">
                 <div>随机标签云</div>
-                <a href="/">asd</a>
-                <a href="/">dkl</a>
-                <a href="/">xfe</a>
-                <a href="/">deww</a>
+                <a href="/" v-for="tag in tags" :style="{color: randomColor(),fontSize: randomSize()}">{{tag}}</a>
             </div>
-            <div class="right_module">
+            <div class="right_module" id="new_hot">
                 <div>最近热门</div>
-                <ul>
-                    <li><a href="/">使用码云git的webhook实现生产环境代</a></li>
-                    <li><a href="/">使用码云git的webhook实现生产环境代</a></li>
-                    <li><a href="/">使用码云git的webhook实现生产环境代</a></li>
-                    <li><a href="/">使用码云git的webhook实现生产环境代</a></li>
+                <ul v-for="hot in hots">
+                    <li><a :href="hot.link">{{hot.title}}</a></li>
                 </ul>
             </div>
-            <div class="right_module">
+            <div class="right_module" id="new_comments">
                 <div>最新评论</div>
                 <ul>
-                    <li>
+                    <li v-for="comment in comments">
                         <div>
-                            <span>这里是用户名</span>
-                            <span class="pull_right">这里是时间</span>
-                            <p>内容</p>
+                            <span>{{comment.name}}</span>
+                            <span class="pull_right">{{comment.date}}</span>
+                            <p>{{comment.content}}</p>
                         </div>
                     </li>
                 </ul>
@@ -107,5 +98,7 @@
         </ul>
         <p>Copyright © 2010-2019 ...</p>
     </footer>
+    <script src="./js/index.js"></script>
+    <script src="./js/base.js"></script>
 </body>
 </html>
