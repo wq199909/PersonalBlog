@@ -3,6 +3,7 @@
     padding: 0;
     list-style: none;
 }
+
 body{
     background-image: url("../img/bg.jpg");
     position: relative;
@@ -93,4 +94,72 @@ body{
     padding: 0;
     box-sizing: border-box;
 
+}
+
+.right_module{
+    display: inline-block;
+    width: 100%;
+    background-color: #1f1f1f;
+    border-radius: 10px;
+    color: #fff;
+    text-align: left;
+    padding: 0 15px;
+    margin-bottom: 20px;
+}
+.tags{
+    padding: 0 15px 25px;
+}
+.right_module>div{
+    display: block;
+    text-align: left;
+    font-size: 14px;
+    padding: 15px 5px 15px 0;
+    color: dodgerblue;
+}
+.right_module>a{
+    display: inline-block;
+    font-size: 14px;
+    color: dodgerblue;
+    margin-right: 5px;
+    text-decoration: none;
+}
+.right_module>ul>li{
+    padding: 8px 0;
+    border-bottom: 1px solid #292929;
+}
+.right_module>ul>li>a{
+    text-decoration: none;
+    color: #fff;
+}
+.right_module>ul>li>a:hover{
+    color: #337ab7;
+}
+.right_module>ul>div{
+    padding: 5px 0px;
+}
+.right_module>ul>div>span{
+    color: #fff;
+    font-size: 14px;
+}
+.right_module>ul>div>p{
+    color: #777;
+    font-size: 14px;
+}
+.pull_right{
+    position: absolute;
+    right: 15px;
+}
+.right_module>span{
+    display: inline-block;
+    width: calc(50% - 15px);
+    height: 30px;
+    margin-top: 10px;
+    border-bottom: 1px solid #292929;
+}
+.right_module>span>a{
+    color: #fff;
+    text-decoration: none;
+}
+.right_module>span>a:hover{
+    color: #337ab7;
 }
