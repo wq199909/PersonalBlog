@@ -5,6 +5,7 @@
     padding: 10px;
     box-shadow: 3px 4px 3px #888;
     border-radius: 5px;   
+    box-sizing: border-box;
 }
 .every_day::before{
     font-family: MyIcon;
@@ -21,4 +22,46 @@
     font-size: 12px;
     margin-bottom: 5px;
     color: slateblue;
+}
+
+.article_list{
+    border-radius: 5px;
+    width: 100%;
+    margin-top: 15px;
+}
+.article{
+    display: inline-block;
+    background-color: #fff;
+    border-radius: 5px;
+    width: 100%;
+    box-shadow: 1px 2px 2px #888;
+    overflow: hidden;
+    text-align: left;
+    margin-top: 15px;
+    
+}
+.article_title{
+    display: inline-block;
+    font-size: 20px;
+    text-decoration: none;
+    color: #13102b;
+    padding: 20px 10px 5px 10px;
+}
+.article_title:hover{
+    color: #337ab7;
+}
+.article_content{
+    font-size: 14px;
+    color: #13102b;
+    padding: 0 10px 20px 10px;
+    word-wrap: break-word;
+    word-break: break-all;
+    overflow: hidden;
+}
+.article_foot{
+    background-color: #1f1f1f;
+    color: #eee;
+    width: 100%;
+    font-size: 14px;
+    padding: 5px 10px;
 }
