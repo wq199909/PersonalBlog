@@ -5,7 +5,7 @@
  * @email: 2749374330@qq.com
  * @Date: 2020-01-13 16:19:15
  * @LastEditors  : WangQing
- * @LastEditTime : 2020-01-13 19:49:27
+ * @LastEditTime : 2020-01-13 20:20:48
  */
 let blogDetail = new Vue({
     el: '#blog_detail',
@@ -54,18 +54,24 @@ let blogComment = new Vue({
     },
     methods:{
         changeCode : function(){
-
+            axios({
+                url: "/queryRandomCode",
+                method: "get"
+            }).then(function (resp) {
+                blogComment.randomCode = resp.data.data.text;
+                blogComment.randomSvg = resp.data.data.data;
+            });
         },
         sendComment: function () {
-            // if (this.name == "" || this.email == "" || this.comment == "" || this.inputRandomCode == "") {
-            //     alert("内容不能为空");
-            //     return;
-            // }
-            // if (this.inputRandomCode.toLowerCase() != this.randomCode.toLowerCase()) {
-            //     alert("二维码输入不正确");
-            //     return;
-            // }
-            //blogId, commentId, content, name, email
+            if (this.name == "" || this.email == "" || this.comment == "" || this.inputRandomCode == "") {
+                alert("内容不能为空");
+                return;
+            }
+            if (this.inputRandomCode.toLowerCase() != this.randomCode.toLowerCase()) {
+                alert("二维码输入不正确");
+                return;
+            }
+            blogId, commentId, content, name, email
             var blogId = -2;
             axios({
                 url: "/addComment?blogId=" + blogId + "&parent=" + this.commentId + "&content=" + this.comment + "&user_name=" + this.name + "&email=" + this.email,
@@ -79,5 +85,8 @@ let blogComment = new Vue({
                 blogComment.commentId = 0;
             });
         }
-    }
+    },
+    created() {
+        this.changeCode();
+    },
 })
