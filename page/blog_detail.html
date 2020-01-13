@@ -5,7 +5,7 @@
  * @email: 2749374330@qq.com
  * @Date: 2019-12-19 13:32:46
  * @LastEditors  : WangQing
- * @LastEditTime : 2020-01-13 19:47:53
+ * @LastEditTime : 2020-01-13 21:22:38
  -->
  <!DOCTYPE html>
  <html lang="en">
@@ -44,18 +44,10 @@
                 <div class="blog_content" v-html="content"></div>
             </div>
             <div class="blog_comments" id="blog_comments">
-                <div class="blog_comments_msg">关于：目前有68 条留言</div>
-                <div class="blog_comment">
-                    <span><b>cjh333</b>: 发表于 2019年12月18日 21:53[回复]</span>
-                    <div>dafjkldjafflkkfjdlak</div>
-                </div>
-                <div class="blog_comment">
-                    <span><b>cjh333</b>: 发表于 2019年12月18日 21:53[回复]</span>
-                    <div>dafjkldjafflkkfjdlak</div>
-                </div>
-                <div class="blog_comment">
-                    <span><b>cjh333</b>: 发表于 2019年12月18日 21:53[回复]</span>
-                    <div>dafjkldjafflkkfjdlak</div>
+                <div class="blog_comments_msg">留言</div>
+                <div class="blog_comment" v-for="comment in commentList" :v-key='comment.id'>
+                    <span><b>{{comment.user_name}}</b>: 发表于 {{comment.ctime}} [回复]</span>
+                    <div>{{comment.comments}}</div>
                 </div>
                 <div class="addComment" id="addComment">
                     <p>发表评论</p>

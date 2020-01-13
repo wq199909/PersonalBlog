@@ -5,7 +5,7 @@
  * @email: 2749374330@qq.com
  * @Date: 2019-12-19 13:30:54
  * @LastEditors  : WangQing
- * @LastEditTime : 2020-01-13 20:05:33
+ * @LastEditTime : 2020-01-13 21:08:28
  */
 let express = require("express");
 let globalConfig = require("./config")
@@ -23,5 +23,6 @@ app.get("/queryBlogCount", loader.get("queryBlogCount"))
 app.get("/queryBlogById", loader.get("queryBlogById"))
 app.get("/addComment", loader.get("addComment"))
 app.get("/queryRandomCode", loader.get("queryRandomCode"))
+app.get("/getCommentsById", loader.get("getCommentsById"))
 
 app.listen(globalConfig.port);

@@ -5,7 +5,7 @@
  * @email: 2749374330@qq.com
  * @Date: 2020-01-13 19:21:50
  * @LastEditors  : WangQing
- * @LastEditTime : 2020-01-13 20:17:15
+ * @LastEditTime : 2020-01-13 21:11:55
  */
 let url = require("url");
 let commentDao = require('../dao/CommentDao');
@@ -32,5 +32,16 @@ function queryRandomCode(request, response) {
 }
 
 path.set("queryRandomCode", queryRandomCode);
+
+function getCommentsById(request, response) {
+    let params = url.parse(request.url, true).query;
+    commentDao.queryCommentsById(params.bid, function(res){
+        response.writeHead(200);
+        response.write(respUtil.writeResult("success", "查询成功", res));
+        response.end();
+    })
+}
+
+path.set("getCommentsById", getCommentsById);
 
 module.exports.path = path;
