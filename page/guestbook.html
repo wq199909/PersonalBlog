@@ -5,7 +5,7 @@
  * @email: 2749374330@qq.com
  * @Date: 2019-12-19 13:32:46
  * @LastEditors  : WangQing
- * @LastEditTime : 2019-12-19 13:48:27
+ * @LastEditTime : 2020-01-13 22:23:10
  -->
  <!DOCTYPE html>
  <html lang="en">
@@ -41,19 +41,20 @@
                 <p>欢迎灌水交流，别看我长时间不发博，博主可一直都在线~</p>
                 <p class="red">不要皮，谢谢。</p>
             </div>
-            <div class="blog_comments">
-                <div class="blog_comments_msg">关于：目前有68 条留言</div>
-                <div class="blog_comment">
-                    <span><b>cjh333</b>: 发表于 2019年12月18日 21:53[回复]</span>
-                    <div>dafjkldjafflkkfjdlak</div>
+            <div class="blog_comments" id="blog_comments">
+                <div class="blog_comments_msg">留言</div>
+                <div class="blog_comment" v-for="comment in commentList" :v-key='comment.id'>
+                    <span><b>{{comment.user_name}}</b>: 发表于 {{comment.ctime}} [回复]</span>
+                    <div>{{comment.comments}}</div>
                 </div>
-                <div class="blog_comment">
-                    <span><b>cjh333</b>: 发表于 2019年12月18日 21:53[回复]</span>
-                    <div>dafjkldjafflkkfjdlak</div>
-                </div>
-                <div class="blog_comment">
-                    <span><b>cjh333</b>: 发表于 2019年12月18日 21:53[回复]</span>
-                    <div>dafjkldjafflkkfjdlak</div>
+                <div class="addComment" id="addComment">
+                    <p>发表评论</p>
+                    <input type="hidden" v-model="commentId">
+                    <input type="text" placeholder="昵称" v-model="name"/>
+                    <input type="text" placeholder="邮箱" v-model="email"/>
+                    <textarea placeholder="无意义的内容我可能不会回复你" v-model="comment"></textarea>
+                    <input type="text" placeholder="请在这里输入验证码" v-model="inputRandomCode"><span v-html="randomSvg" @click="changeCode"></span>
+                    <button @click="sendComment">提交留言</button>
                 </div>
             </div>
          </div>
@@ -106,5 +107,6 @@
          <p>Copyright © 2010-2019 ...</p>
      </footer>
      <script src="./js/base.js"></script>
+     <script src="./js/comments.js"></script>
  </body>
  </html>
