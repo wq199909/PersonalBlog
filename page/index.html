@@ -5,7 +5,7 @@
  * @email: 2749374330@qq.com
  * @Date: 2019-12-19 13:32:46
  * @LastEditors  : WangQing
- * @LastEditTime : 2020-01-13 15:29:02
+ * @LastEditTime : 2020-01-13 16:25:25
  -->
 <!DOCTYPE html>
 <html lang="en">
@@ -44,7 +44,7 @@
             </div>
             <div class="article_list" id="article_list">
                 <div class="article" v-for="article in articles">
-                    <a href="" class="article_title">{{article.title}}</a>
+                    <a :href="article.link" class="article_title">{{article.title}}</a>
                     <p href="" class="article_content">{{article.content}}</p>
                     <div href="" class="article_foot">发布于{{article.date}} |  浏览({{article.views}}) | Tags：{{article.tags}}</div>
                 </div>

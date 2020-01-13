@@ -5,7 +5,7 @@
  * @email: 2749374330@qq.com
  * @Date: 2019-12-19 21:09:29
  * @LastEditors  : WangQing
- * @LastEditTime : 2020-01-13 15:49:51
+ * @LastEditTime : 2020-01-13 16:28:00
  */
 let everyDay = new Vue({
     el: "#every_day",
@@ -62,6 +62,7 @@ let articleList = new Vue({
                         for(let i = 0; i < res.length; i++){
                             res[i].date = new Date(parseInt(res[i].ctime)).toJSON().slice(0,10);
                             res[i].content = res[i].content.replace(/<img[\w\W]*>/g, '').replace(/<[\w\W]{1,5}>/g, '').slice(0, 100);
+                            res[i].link = `\\blog_detail.html?bid=${res[i].id}`;
                         }
                         articleList.articles=res;
                         articleList.page = page;
