@@ -5,12 +5,18 @@
  * @email: 2749374330@qq.com
  * @Date: 2019-12-19 13:30:54
  * @LastEditors  : WangQing
- * @LastEditTime : 2019-12-19 13:32:05
+ * @LastEditTime : 2020-01-11 11:34:05
  */
 let express = require("express");
+let globalConfig = require("./config")
+let loader = require("./loader")
 
 let app = express();
 
 app.use(express.static("./page/"));
 
-app.listen(12306);
+app.post("/editEveryDay", loader.get("editEveryDay"))
+app.get("/queryEveryDay", loader.get("queryEveryDay"))
+// app.post("/editBlog", loader.get("/editBlog"))
+
+app.listen(globalConfig.port);

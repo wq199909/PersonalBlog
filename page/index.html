@@ -5,7 +5,7 @@
  * @email: 2749374330@qq.com
  * @Date: 2019-12-19 13:32:46
  * @LastEditors  : WangQing
- * @LastEditTime : 2019-12-19 13:48:27
+ * @LastEditTime : 2020-01-13 10:05:11
  -->
 <!DOCTYPE html>
 <html lang="en">
@@ -39,8 +39,8 @@
         <div class="content_left">
             <div class="every_day" id="every_day">
                 <span>每日一句</span>
-                <p>{{content}}</p>
-                <p>--dajflkjd</p>
+                <p>{{every_day_content}}</p>
+                <p style="float: right;">——{{every_day_name}}</p>
             </div>
             <div class="article_list" id="article_list">
                 <div class="article" v-for="article in articles">
@@ -98,6 +98,7 @@
         </ul>
         <p>Copyright © 2010-2019 ...</p>
     </footer>
+    <script src="./js/axios.min.js"></script>
     <script src="./js/index.js"></script>
     <script src="./js/base.js"></script>
 </body>

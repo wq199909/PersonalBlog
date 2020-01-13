@@ -100,7 +100,19 @@
           let title=document.getElementById('title').value;
           let tags=document.getElementById('tags').value;
           let editor=document.getElementById('editor').innerHTML;
-          console.log(title, tags, editor)
+          $.ajax({
+            url: '/editBlog',
+            method: 'post',
+            data: editor,
+            success: function(resp){
+              var result = JSON.parse(resp);
+              alert(result.msg);
+              $('#editor').html = '';
+            },
+            error: function(resp){
+              console.log(resp)
+            }
+          })
         })()">提交</button>
     </div>
 

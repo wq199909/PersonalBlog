@@ -23,7 +23,11 @@
     margin-bottom: 5px;
     color: slateblue;
 }
-
+.every_day::after{
+    display: block;
+    content: "";
+    clear: both;
+}
 .article_list{
     border-radius: 5px;
     width: 100%;

@@ -5,12 +5,24 @@
  * @email: 2749374330@qq.com
  * @Date: 2019-12-19 21:09:29
  * @LastEditors  : WangQing
- * @LastEditTime : 2019-12-19 21:12:13
+ * @LastEditTime : 2020-01-13 10:07:24
  */
 let everyDay = new Vue({
     el: "#every_day",
     data: {
-        content: "dfjaklfjdakljf"
+        every_day_content: "dfjaklfjdakljf",
+        every_day_name: "bob"
+    },
+    created() {
+        axios({
+            method: 'get',
+            url: '/queryEveryDay',
+        }).then(resp=>{
+            everyDay.every_day_content = resp.data.data[0].content;
+            everyDay.every_day_name = resp.data.data[0].name;
+        }, err=>{
+            console.log(err)
+        })
     },
 })
 let articleList = new Vue({

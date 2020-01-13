@@ -6,6 +6,7 @@
   "author": "wq199909 <2749374330@qq.com>",
   "license": "MIT",
   "dependencies": {
-    "express": "^4.17.1"
+    "express": "^4.17.1",
+    "mysql": "^2.17.1"
   }
 }
