@@ -5,7 +5,7 @@
  * @email: 2749374330@qq.com
  * @Date: 2020-01-09 11:53:58
  * @LastEditors  : WangQing
- * @LastEditTime : 2020-01-13 14:04:34
+ * @LastEditTime : 2020-01-13 15:42:17
  */
 let url = require("url");
 let blogDao = require('../dao/BlogDao');
@@ -44,5 +44,15 @@ function queryBlogByPage(request, response){
 }
 
 path.set("queryBlogByPage", queryBlogByPage);
+
+function queryBlogCount(request, response){
+    blogDao.queryBlogCount(function(res){
+        response.writeHead(200);
+        response.write(respUtil.writeResult("success", "查询成功", res));
+        response.end();
+    })
+}
+
+path.set("queryBlogCount", queryBlogCount);
 
 module.exports.path = path;

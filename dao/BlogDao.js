@@ -5,7 +5,7 @@
  * @email: 2749374330@qq.com
  * @Date: 2020-01-13 10:13:09
  * @LastEditors  : WangQing
- * @LastEditTime : 2020-01-13 13:55:56
+ * @LastEditTime : 2020-01-13 15:48:48
  */
 let dbutil = require('./dbutil');
 
@@ -40,7 +40,23 @@ function queryBlogByPage(page, pageSize, success){
     connection.end();
 }
 
+function queryBlogCount(success){
+    let querySql = "select count(1) from blog";
+    let params = [];
+    let connection = dbutil.createConnection();
+    connection.connect();
+    connection.query(querySql, params, function(err, res){
+        if(err == null){
+            success(res);
+        }else{
+            console.log(err);
+        }
+    })
+    connection.end();
+}
+
 module.exports = {
     insertBlog,
-    queryBlogByPage
+    queryBlogByPage,
+    queryBlogCount
 }
