@@ -5,7 +5,7 @@
  * @email: 2749374330@qq.com
  * @Date: 2019-12-19 13:32:46
  * @LastEditors  : WangQing
- * @LastEditTime : 2020-01-13 16:51:14
+ * @LastEditTime : 2020-01-13 19:47:53
  -->
  <!DOCTYPE html>
  <html lang="en">
@@ -17,6 +17,7 @@
      <title>个人博客</title>
      <link rel="stylesheet" href="./css/base.css">
      <link rel="stylesheet" href="./css/blog_detail.css">
+     <link rel="stylesheet" href="./css/comments.css">
      <script src="https://cdn.jsdelivr.net/npm/vue"></script>
  </head>
  <body>
@@ -40,9 +41,9 @@
             <div class="blog" id="blog_detail">
                 <div class="blog_title">{{title}}</div>
                 <div class="blog_msg">作者：汪清 标签：{{tags}} 发布于：{{ctime}} 浏览：{{views}}</div>
-                <div class="blog_content">{{content}}</div>
+                <div class="blog_content" v-html="content"></div>
             </div>
-            <div class="blog_comments">
+            <div class="blog_comments" id="blog_comments">
                 <div class="blog_comments_msg">关于：目前有68 条留言</div>
                 <div class="blog_comment">
                     <span><b>cjh333</b>: 发表于 2019年12月18日 21:53[回复]</span>
@@ -55,6 +56,15 @@
                 <div class="blog_comment">
                     <span><b>cjh333</b>: 发表于 2019年12月18日 21:53[回复]</span>
                     <div>dafjkldjafflkkfjdlak</div>
+                </div>
+                <div class="addComment" id="addComment">
+                    <p>发表评论</p>
+                    <input type="hidden" v-model="commentId">
+                    <input type="text" placeholder="昵称" v-model="name"/>
+                    <input type="text" placeholder="邮箱" v-model="email"/>
+                    <textarea placeholder="无意义的内容我可能不会回复你" v-model="comment"></textarea>
+                    <input type="text" placeholder="请在这里输入验证码" v-model="inputRandomCode"><span v-html="randomSvg" @click="changeCode"></span>
+                    <button @click="sendComment">提交留言</button>
                 </div>
             </div>
          </div>

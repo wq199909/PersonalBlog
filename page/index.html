@@ -5,7 +5,7 @@
  * @email: 2749374330@qq.com
  * @Date: 2019-12-19 13:32:46
  * @LastEditors  : WangQing
- * @LastEditTime : 2020-01-13 16:25:25
+ * @LastEditTime : 2020-01-13 19:00:01
  -->
 <!DOCTYPE html>
 <html lang="en">
@@ -39,8 +39,10 @@
         <div class="content_left">
             <div class="every_day" id="every_day">
                 <span>每日一句</span>
-                <p>{{every_day_content}}</p>
-                <p style="float: right;">——{{every_day_name}}</p>
+                <p v-html="every_day_content"></p>
+                <div  style="float: right;" >
+                    —— <span v-html='every_day_name'></span>
+                </div>
             </div>
             <div class="article_list" id="article_list">
                 <div class="article" v-for="article in articles">

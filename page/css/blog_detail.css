@@ -24,6 +24,9 @@
 }
 .blog_content{
     margin: 10px 2px;
+    word-wrap: break-word;
+    word-break: break-all;
+    overflow: hidden;
 }
 
 .blog_comments{
