@@ -101,7 +101,7 @@
           let tags=document.getElementById('tags').value;
           let editor=document.getElementById('editor').innerHTML;
           $.ajax({
-            url: '/editBlog',
+            url: '/editBlog?title='+title+'&tags='+tags,
             method: 'post',
             data: editor,
             success: function(resp){
